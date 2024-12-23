@@ -16,7 +16,7 @@ export default function AllProducts() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const res = await fetch("https://ecommerce-59xz-6c8fafdqe-alyan130s-projects.vercel.app/api/products");
+        const res = await fetch("/api/products");
         const products = await res.json();
         setData(products);
       } catch (error) {
