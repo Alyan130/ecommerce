@@ -16,7 +16,7 @@ const [data, setData]=useState<pdata[]>([]);
   useEffect(()=>{
     const fetchdata = async () =>{
       try{
-const res = await fetch("https://ecommerce-3k65v9u34-alyan130s-projects.vercel.app/api/products");
+const res = await fetch("https://ecommerce-59xz-6c8fafdqe-alyan130s-projects.vercel.app/api/products");
 const products:pdata[]=await res.json();
 const newData= products.slice(0,8);
 setData(newData);    

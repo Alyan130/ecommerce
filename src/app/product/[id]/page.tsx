@@ -11,7 +11,7 @@ export default async function SingleProduct({params}:{params:Promise<{id:string}
     const param =await params;
     const {id}= param;
 
-   const res= await fetch(`http://localhost:3000/api/products/${id}`)
+   const res= await fetch(`https://ecommerce-59xz-6c8fafdqe-alyan130s-projects.vercel.app/products/${id}`)
 const data:pdata  = await res.json();
 
     return(
