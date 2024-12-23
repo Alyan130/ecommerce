@@ -1,3 +1,5 @@
+"use client";
+import { useEffect, useState } from "react";
 import ProductCard from "./productcard";
 
 interface pdata{
@@ -8,13 +10,22 @@ interface pdata{
 }
 
 
-export default async function Products() {
-  
+export default function Products() {
+const [data, setData]=useState<pdata[]>([]);
+
+  useEffect(()=>{
+    const fetchdata = async () =>{
+      try{
 const res = await fetch("http://localhost:3000/api/products");
-const data:pdata[]=await res.json();
-
-const newData= data.slice(0,8);
-
+const products:pdata[]=await res.json();
+const newData= products.slice(0,8);
+setData(newData);    
+} catch (error) {
+  console.error("Error fetching products:", error);
+}
+  }
+  fetchdata();
+},[])
   return (
     <>
       <section className="py-14">
@@ -26,7 +37,7 @@ const newData= data.slice(0,8);
           </div>
 
           <div className="py-6 px-4 sm:px-2 md:px-0 lg:px-0 w-full flex flex-wrap gap-x-10 gap-y-10 justify-center md:justify-center">
-            {newData.map((e) => (
+            {data.map((e) => (
               
               <ProductCard
               key={e.id}

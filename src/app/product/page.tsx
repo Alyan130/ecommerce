@@ -5,7 +5,7 @@ import { Newsletter } from "@/components/productCTA";
 export default function Products(){
     return(
 <>
-<AllProducts/> 
+<AllProducts/>
  <Newsletter/>
 </>
     );
